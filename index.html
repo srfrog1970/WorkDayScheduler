@@ -1,0 +1,140 @@
+<!-- Instructions to the web browser about what version of HTML the page is written in. -->
+<!DOCTYPE html>
+<!-- Declares the language of a Web page or a portion of a Web page. -->
+<html lang="en">
+<!-- Header of the HTML page -->
+<head>
+  <!-- Unicode Standard -->
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Identify the stylesheets (bootstrap font awesome and google fonts) -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Title of the page to be displayed on tab -->
+  <title>Work Day Scheduler</title>
+</head>
+
+<!-- The body of the HTML page -->
+<body>
+  <!-- Header using the jumbotron class of bootstrap -->
+  <header class="jumbotron">
+
+        <!-- Sets the size of the h1 tag via bootstrap -->
+    <h1 class="display-3">Work Day Scheduler</h1>
+    
+     <!-- class "lead" makes the text standout via bootstrap -->
+    <p class="lead">A simple calendar app for scheduling your work day</p>
+    <!-- paragraph to display the current date with an ID of currentDay -->
+    <p id="currentDay" class="lead"></p>
+    <p class="lead"> You have <span id= "task-number"></span> tasks today!  </p>
+     <!-- End of the header -->
+  </header>
+
+  <!-- div tag with the container class from bootstrap -->
+  <div class="container">
+    
+    <!-- The next set of HTML is used to diaply the hours from 9am to 5pm
+    Each hour is set up with the id "hour-" and the hour
+    Each hour is in a div identified with the class "row" from bootstrap and 
+    "time-block" from the style.css -->
+    <div id="hour-9" class="row time-block">
+
+    <!-- div tag with "hour" class from the style.css and
+      col-md-1 class from bootstrap (col = column, md = medium, 
+      1 = number of columns out of 12 using the bootstrap grid system) -->
+      <div class="col-md-1 hour">
+        9AM
+      </div>
+      <!-- set the multi-line text input control where the user will enter their scheduled items
+      set the column to medium at 10 using the grid system -->
+      <textarea class="col-md-10 description">
+      </textarea>
+
+       <!-- create the button to save the text and insert the save icon from font awesome-->
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+
+    <!-- each row is the same format as above -->
+    <div id="hour-10" class="row time-block">
+      <div class="col-md-1 hour">
+        10AM
+      </div>
+      <textarea class="col-md-10 description">
+      </textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+
+
+    
+    <div id="hour-11" class="row time-block">
+      <div class="col-md-1 hour">
+        11AM
+      </div>
+      <textarea class="col-md-10 description">
+      </textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    <div id="hour-12" class="row time-block">
+      <div class="col-md-1 hour">
+        12PM
+      </div>
+      <textarea class="col-md-10 description">
+      </textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+   <div id="hour-13" class="row time-block">
+      <div class="col-md-1 hour">
+        1PM
+      </div>
+      <textarea class="col-md-10 description">
+      </textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    <div id="hour-14" class="row time-block">
+      <div class="col-md-1 hour">
+        2PM
+      </div>
+      <textarea class="col-md-10 description">
+      </textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    <div id="hour-15" class="row time-block">
+     <div class="col-md-1 hour">
+        3PM
+      </div>
+      <textarea class="col-md-10 description">
+      </textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    <div id="hour-16" class="row time-block">
+      <div class="col-md-1 hour">
+        4PM
+      </div>
+      <textarea class="col-md-10 description">
+      </textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+    <div id="hour-17" class="row time-block">
+      <div class="col-md-1 hour">
+        5PM
+      </div>
+      <textarea class="col-md-10 description">
+      </textarea>
+      <button class="btn saveBtn col-md-1"><i class="fas fa-save"></i></button>
+    </div>
+
+    <!-- jquery scripts -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+        <!-- user defined scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

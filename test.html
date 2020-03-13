@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.4;
+        background: linear-gradient(45deg, rgb(201, 53, 194), rgb(12, 67, 168));
+        height: 100vh;
+      }
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .app {
+        margin-top: 200px;
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 1em;
+      }
+      .btn {
+        margin: 5px;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <h1 id="time"></h1>
+      <div class="btn">
+        <button type="button" class="btn btn-dark" id="start">start</button>
+        <button type="button" class="btn btn-dark" id="stop">stop</button>
+      </div>
+      <form type="button" class="btn btn-dark" action="">
+        <input
+          id="timeInput"
+          type="number"
+          placeholder="Insert starting time"
+        />
+        <button type="button" class="btn btn-dark" id="submitTime">
+          submit
+        </button>
+      </form>
+      <h2 id="message"></h2>
+    </div>
+
+    <script>
+      var time = document.querySelector("#time");
+      var start = document.querySelector("#start");
+      var stopB = document.querySelector("#stop");
+      var timeInput = document.querySelector("#timeInput");
+      var submitTime = document.querySelector("#submitTime");
+      var message = document.querySelector("#message");
+      var timeInterval; // declare timeInterval to allow global access for all functions
+      var startTime = 0;
+
+      time.textContent = startTime;
+
+      submitTime.addEventListener("click", function(event) {
+        event.preventDefault();
+        if (timeInput.value) {
+          startTime = timeInput.value;
+          time.textContent = startTime;
+        }
+        timeInput.value = "";
+      });
+
+      //START THE CLOCK
+      start.addEventListener("click", function(event) {
+        // prevent the clock from starting without a positive input
+        if (startTime <= 0) {
+          return;
+        }
+        event.preventDefault();
+
+        timeInterval = setInterval(function() {
+          startTime--;
+          time.textContent = startTime;
+
+          if (startTime === 0) {
+            clearInterval(timeInterval);
+            message.textContent = "OUT OF TIME";
+          }
+        }, 1000);
+      });
+
+      // STOP THE CLOCK
+      stopB.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        clearInterval(timeInterval);
+      });
+    </script>
+  </body>
+</html>
